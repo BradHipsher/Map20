@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/durplebox.png-378144b436f7d4e85b4db0eec745588e.stex"
+path="res://.import/tile-blank.png-b9fd6d3d9c289610f203ad36c2677fd5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main/res/durplebox.png"
-dest_files=[ "res://.import/durplebox.png-378144b436f7d4e85b4db0eec745588e.stex" ]
+source_file="res://res/img/tile-blank.png"
+dest_files=[ "res://.import/tile-blank.png-b9fd6d3d9c289610f203ad36c2677fd5.stex" ]
 
 [params]
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://main/grid/grid.gd" type="Script" id=1]
+[ext_resource path="res://main/grid/Grid2D.gd" type="Script" id=2]
+
+[node name="grid-view" type="Viewport"]
+size = Vector2( 640, 640 )
+size_override_stretch = true
+script = ExtResource( 1 )
+
+[node name="Grid2D" type="Node2D" parent="." groups=[
+"grid2d",
+]]
+script = ExtResource( 2 )
+
+[node name="tiles" type="Node2D" parent="Grid2D"]
+
+[node name="players" type="Node2D" parent="Grid2D"]

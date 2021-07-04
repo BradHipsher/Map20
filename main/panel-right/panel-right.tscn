@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://res/fonts/BRLNSR.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://main/panel-right/panel-right.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[node name="panel-right" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -484.314, -34.2123 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="panel-container" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbox" type="VBoxContainer" parent="panel-container"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1131.0
+margin_bottom = 633.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playersLabel" type="RichTextLabel" parent="panel-container/vbox"]
+margin_right = 1124.0
+margin_bottom = 33.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Players[/center]"
+text = "Players"
+fit_content_height = true
+
+[node name="players" type="ItemList" parent="panel-container/vbox"]
+margin_top = 37.0
+margin_right = 1124.0
+margin_bottom = 296.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="addPlayer" type="Button" parent="panel-container/vbox"]
+margin_top = 300.0
+margin_right = 1124.0
+margin_bottom = 325.0
+custom_fonts/font = SubResource( 1 )
+text = "^^ ADD PLAYER ^^"
+
+[node name="Entities" type="RichTextLabel" parent="panel-container/vbox"]
+margin_top = 329.0
+margin_right = 1124.0
+margin_bottom = 362.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Entities[/center]"
+text = "Entities"
+fit_content_height = true
+
+[node name="entities" type="ItemList" parent="panel-container/vbox"]
+margin_top = 366.0
+margin_right = 1124.0
+margin_bottom = 626.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="panel-container/vbox/addPlayer" to="." method="_on_addPlayer_pressed"]
