@@ -14,6 +14,10 @@ config/name="Map20"
 run/main_scene="res://main/main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://main/Global.gd"
+
 [display]
 
 window/size/width=1138
