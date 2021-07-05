@@ -10,7 +10,6 @@ func _ready():
 	panelLeft = get_node("panel-left-anchor/panel-left")
 	grid2d = get_node("Grid2D")
 	panelRight = get_node("panel-right-anchor/panel-right")
-	
 	add_player("Myglassius", myglassiusTxt)
 
 func add_player(nm, txt):

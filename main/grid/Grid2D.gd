@@ -9,17 +9,22 @@ var tiles
 var players
 var gridPositions
 
-const gridType = 'rect'
+var gridType = 'rect'
+
+const gridToggle = {
+	'rect': 'hex',
+	'hex': 'rect'
+}
 
 var held_object = null
 
 func _ready():
-	
 	tiles = get_node("tiles")
 	players = get_node("players")
-	
+	generate_grid()
+
+func generate_grid():
 	gridPositions = []
-	
 	if (gridType == 'rect'):
 		for j in 19:
 			for i in 19:
@@ -35,7 +40,10 @@ func _ready():
 				for i in 18:
 					var pos = Vector2(48+i*32, 32+j*32)
 					gridPositions.append(pos)
-	
+	refresh_tiles()
+
+func refresh_tiles():
+	Global.delete_children(tiles)
 	for pos in gridPositions:
 		var ts = tileSpace.instance()
 		ts.position = pos
@@ -65,3 +73,10 @@ func add_player(nm, txt):
 	print(self)
 	players.add_child(ent)
 
+func toggle_gridType():
+	gridType = gridToggle.get(gridType)
+	generate_grid()
+
+
+func _on_panelleft_gridTypeToggled():
+	toggle_gridType()

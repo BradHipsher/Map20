@@ -1,6 +1,7 @@
 extends Panel
 
 signal playerAdded(nm, txt)
+signal gridTypeToggled
 
 var popupWIP = preload("res://main/popups/popup-wip.tscn")
 
@@ -10,10 +11,11 @@ func _ready():
 	entities = get_node("panel-container/vbox/entities")
 
 func _on_hexMode_toggled(button_pressed):
-	var popup = popupWIP.instance()
-	add_child(popup)
-	popup.popup_centered(Vector2(320,100))
-	get_node("panel-container/vbox/hexMode").pressed = false
+#	var popup = popupWIP.instance()
+#	add_child(popup)
+#	popup.popup_centered(Vector2(320,100))
+#	get_node("panel-container/vbox/hexMode").pressed = false
+	emit_signal('gridTypeToggled')
 
 func _on_save_pressed():
 	var popup = popupWIP.instance()
