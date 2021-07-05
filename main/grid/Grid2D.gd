@@ -19,6 +19,7 @@ const gridToggle = {
 var held_object = null
 
 func _ready():
+	print("grid ready")
 	tiles = get_node("tiles")
 	players = get_node("players")
 	generate_grid()
@@ -26,18 +27,18 @@ func _ready():
 func generate_grid():
 	gridPositions = []
 	if (gridType == 'rect'):
-		for j in 19:
-			for i in 19:
+		for j in 29:
+			for i in 29:
 				var pos = Vector2(32+i*32, 32+j*32)
 				gridPositions.append(pos)
 	if (gridType == 'hex'):
-		for j in 19:
+		for j in 29:
 			if(j % 2):
-				for i in 19:
+				for i in 29:
 					var pos = Vector2(32+i*32, 32+j*32)
 					gridPositions.append(pos)
 			if(! j % 2):
-				for i in 18:
+				for i in 28:
 					var pos = Vector2(48+i*32, 32+j*32)
 					gridPositions.append(pos)
 	refresh_tiles()
@@ -80,3 +81,7 @@ func toggle_gridType():
 
 func _on_panelleft_gridTypeToggled():
 	toggle_gridType()
+
+
+func _on_panelleft_playerAdded(txt, nm):
+	pass # Replace with function body.

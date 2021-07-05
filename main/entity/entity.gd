@@ -6,7 +6,6 @@ var held = false
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
-		print("_input_event")
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			emit_signal("clicked", self)
 

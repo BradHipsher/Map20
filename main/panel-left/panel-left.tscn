@@ -31,7 +31,7 @@ font_data = ExtResource( 1 )
 anchor_right = 0.219684
 anchor_bottom = 1.0
 margin_right = -250.0
-rect_min_size = Vector2( 250, 640 )
+rect_min_size = Vector2( 300, 960 )
 size_flags_vertical = 3
 script = ExtResource( 2 )
 __meta__ = {
@@ -48,14 +48,14 @@ __meta__ = {
 [node name="vbox" type="VBoxContainer" parent="panel-container"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 243.0
-margin_bottom = 633.0
+margin_right = 293.0
+margin_bottom = 953.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="titleLabel" type="RichTextLabel" parent="panel-container/vbox"]
-margin_right = 236.0
+margin_right = 286.0
 margin_bottom = 33.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
@@ -65,18 +65,18 @@ fit_content_height = true
 
 [node name="hexMode" type="CheckButton" parent="panel-container/vbox"]
 margin_top = 37.0
-margin_right = 236.0
+margin_right = 286.0
 margin_bottom = 77.0
 custom_fonts/font = SubResource( 2 )
 text = "HEX-MODE"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="panel-container/vbox"]
 margin_top = 81.0
-margin_right = 236.0
+margin_right = 286.0
 margin_bottom = 106.0
 
 [node name="save" type="Button" parent="panel-container/vbox/HBoxContainer"]
-margin_right = 116.0
+margin_right = 141.0
 margin_bottom = 25.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -84,8 +84,8 @@ custom_fonts/font = SubResource( 3 )
 text = "SAVE"
 
 [node name="load" type="Button" parent="panel-container/vbox/HBoxContainer"]
-margin_left = 120.0
-margin_right = 236.0
+margin_left = 145.0
+margin_right = 286.0
 margin_bottom = 25.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -94,13 +94,13 @@ text = "LOAD"
 
 [node name="spacer" type="MarginContainer" parent="panel-container/vbox"]
 margin_top = 110.0
-margin_right = 236.0
+margin_right = 286.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 0, 10 )
 
 [node name="tilesLabel" type="RichTextLabel" parent="panel-container/vbox"]
 margin_top = 124.0
-margin_right = 236.0
+margin_right = 286.0
 margin_bottom = 148.0
 custom_fonts/normal_font = SubResource( 5 )
 bbcode_enabled = true
@@ -110,21 +110,15 @@ fit_content_height = true
 
 [node name="tiles" type="ItemList" parent="panel-container/vbox"]
 margin_top = 152.0
-margin_right = 236.0
-margin_bottom = 351.0
+margin_right = 286.0
+margin_bottom = 518.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="spacer2" type="MarginContainer" parent="panel-container/vbox"]
-margin_top = 355.0
-margin_right = 236.0
-margin_bottom = 365.0
-rect_min_size = Vector2( 0, 10 )
-
 [node name="entitiesLabel" type="RichTextLabel" parent="panel-container/vbox"]
-margin_top = 369.0
-margin_right = 236.0
-margin_bottom = 393.0
+margin_top = 522.0
+margin_right = 286.0
+margin_bottom = 546.0
 custom_fonts/normal_font = SubResource( 6 )
 bbcode_enabled = true
 bbcode_text = "[center]Entities[/center]"
@@ -132,16 +126,16 @@ text = "Entities"
 fit_content_height = true
 
 [node name="entities" type="ItemList" parent="panel-container/vbox"]
-margin_top = 397.0
-margin_right = 236.0
-margin_bottom = 597.0
+margin_top = 550.0
+margin_right = 286.0
+margin_bottom = 917.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="addPlayer" type="Button" parent="panel-container/vbox"]
-margin_top = 601.0
-margin_right = 236.0
-margin_bottom = 626.0
+margin_top = 921.0
+margin_right = 286.0
+margin_bottom = 946.0
 custom_fonts/font = SubResource( 7 )
 text = "ADD ENTITY"
 

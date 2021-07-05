@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://res/fonts/BRLNSR.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://main/panel-right/panel-right.gd" type="Script" id=2]
+[ext_resource path="res://main/panel-right/players-vbox.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
@@ -9,7 +10,7 @@ font_data = ExtResource( 1 )
 
 [node name="panel-right" type="Panel"]
 anchor_bottom = 1.0
-rect_min_size = Vector2( 250, 640 )
+rect_min_size = Vector2( 300, 960 )
 size_flags_vertical = 3
 script = ExtResource( 2 )
 __meta__ = {
@@ -26,14 +27,14 @@ __meta__ = {
 [node name="vbox" type="VBoxContainer" parent="panel-container"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 243.0
-margin_bottom = 633.0
+margin_right = 293.0
+margin_bottom = 953.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="playersLabel" type="RichTextLabel" parent="panel-container/vbox"]
-margin_right = 236.0
+margin_right = 286.0
 margin_bottom = 33.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
@@ -41,9 +42,16 @@ bbcode_text = "[center]Players[/center]"
 text = "Players"
 fit_content_height = true
 
-[node name="players" type="ItemList" parent="panel-container/vbox"]
+[node name="players" type="ScrollContainer" parent="panel-container/vbox"]
 margin_top = 37.0
-margin_right = 236.0
-margin_bottom = 626.0
+margin_right = 286.0
+margin_bottom = 946.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="players-vbox" type="VBoxContainer" parent="panel-container/vbox/players"]
+margin_right = 286.0
+margin_bottom = 909.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 4 )

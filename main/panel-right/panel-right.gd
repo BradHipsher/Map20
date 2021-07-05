@@ -3,7 +3,8 @@ extends Panel
 var players
 
 func _ready():
-	players = get_node("panel-container/vbox/players")
+	print("panel-right ready")
+	players = get_node("panel-container/vbox/players/players-vbox")
 
-func add_player(nm, txt):
-	players.add_item(nm, txt)
+func add_player(txt, nm, dmg, ht, cond):
+	players.add_player(txt, nm, dmg, ht, cond)

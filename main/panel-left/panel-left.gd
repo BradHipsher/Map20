@@ -1,6 +1,6 @@
 extends Panel
 
-signal playerAdded(nm, txt)
+signal playerAdded(txt, nm)
 signal gridTypeToggled
 
 var popupWIP = preload("res://main/popups/popup-wip.tscn")
@@ -8,6 +8,7 @@ var popupWIP = preload("res://main/popups/popup-wip.tscn")
 var entities
 
 func _ready():
+	print("panel-left ready")
 	entities = get_node("panel-container/vbox/entities")
 
 func _on_hexMode_toggled(button_pressed):
@@ -30,8 +31,11 @@ func _on_load_pressed():
 func add_player():
 	var selectedEntities = entities.get_selected_items()
 	for ent in selectedEntities:
-		emit_signal("playerAdded",entities.get_item_text(ent), entities.get_item_icon(ent))
+		emit_signal("playerAdded", entities.get_item_icon(ent), entities.get_item_text(ent))
 		entities.remove_item(ent)
 
 func _on_addPlayer_pressed():
 	add_player()
+
+func add_entity(txt, nm):
+	entities.add_item(nm, txt)
