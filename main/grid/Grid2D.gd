@@ -65,7 +65,7 @@ func _unhandled_input(event):
 func add_player(nm, txt):
 	var ent = entity.instance()
 	ent.setSprite(txt)
-	ent.position = Vector2(32 + 4*32, 32 + 7*32)
+	ent.position = Vector2(32 + 0*32, 32 + 0*32)
 	ent.name = nm
 	ent.connect("clicked", self, "_on_pickable_clicked")
 	print("added player and connected the signal")
