@@ -27,18 +27,18 @@ func _ready():
 func generate_grid():
 	gridPositions = []
 	if (gridType == 'rect'):
-		for j in 29:
-			for i in 29:
+		for j in 24:
+			for i in 24:
 				var pos = Vector2(32+i*32, 32+j*32)
 				gridPositions.append(pos)
 	if (gridType == 'hex'):
-		for j in 29:
+		for j in 24:
 			if(j % 2):
-				for i in 29:
+				for i in 24:
 					var pos = Vector2(32+i*32, 32+j*32)
 					gridPositions.append(pos)
 			if(! j % 2):
-				for i in 28:
+				for i in 23:
 					var pos = Vector2(48+i*32, 32+j*32)
 					gridPositions.append(pos)
 	refresh_tiles()

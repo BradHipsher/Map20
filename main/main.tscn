@@ -18,7 +18,7 @@ margin_bottom = 640.0
 position = Vector2( 300, 0 )
 
 [node name="panel-right-anchor" type="Node2D" parent="."]
-position = Vector2( 1260, 0 )
+position = Vector2( 1100, 0 )
 
 [node name="panel-right" parent="panel-right-anchor" instance=ExtResource( 1 )]
 anchor_right = 1.0

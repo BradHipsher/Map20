@@ -31,7 +31,7 @@ font_data = ExtResource( 1 )
 anchor_right = 0.219684
 anchor_bottom = 1.0
 margin_right = -250.0
-rect_min_size = Vector2( 300, 960 )
+rect_min_size = Vector2( 300, 800 )
 size_flags_vertical = 3
 script = ExtResource( 2 )
 __meta__ = {
@@ -49,7 +49,7 @@ __meta__ = {
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 293.0
-margin_bottom = 953.0
+margin_bottom = 793.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -111,14 +111,14 @@ fit_content_height = true
 [node name="tiles" type="ItemList" parent="panel-container/vbox"]
 margin_top = 152.0
 margin_right = 286.0
-margin_bottom = 518.0
+margin_bottom = 438.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="entitiesLabel" type="RichTextLabel" parent="panel-container/vbox"]
-margin_top = 522.0
+margin_top = 442.0
 margin_right = 286.0
-margin_bottom = 546.0
+margin_bottom = 466.0
 custom_fonts/normal_font = SubResource( 6 )
 bbcode_enabled = true
 bbcode_text = "[center]Entities[/center]"
@@ -126,16 +126,16 @@ text = "Entities"
 fit_content_height = true
 
 [node name="entities" type="ItemList" parent="panel-container/vbox"]
-margin_top = 550.0
+margin_top = 470.0
 margin_right = 286.0
-margin_bottom = 917.0
+margin_bottom = 757.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="addPlayer" type="Button" parent="panel-container/vbox"]
-margin_top = 921.0
+margin_top = 761.0
 margin_right = 286.0
-margin_bottom = 946.0
+margin_bottom = 786.0
 custom_fonts/font = SubResource( 7 )
 text = "ADD ENTITY"
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://res/img/myglassius.png" type="Texture" id=1]
 [ext_resource path="res://res/fonts/BRLNSR.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://main/character-card/character-card.gd" type="Script" id=3]
+[ext_resource path="res://main/character-data/character-data.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -13,23 +14,29 @@ size = 14
 font_data = ExtResource( 2 )
 
 [node name="character-card" type="PanelContainer"]
-margin_right = 138.0
-margin_bottom = 64.0
-size_flags_horizontal = 3
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 267.0
+margin_bottom = 88.0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="character-data" parent="." instance=ExtResource( 4 )]
+
+[node name="hbox" type="HBoxContainer" parent="."]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 267.0
-margin_bottom = 92.0
+margin_bottom = 88.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="icon" type="TextureRect" parent="HBoxContainer"]
+[node name="icon" type="TextureRect" parent="hbox"]
 margin_right = 64.0
-margin_bottom = 85.0
+margin_bottom = 81.0
 rect_min_size = Vector2( 64, 0 )
 size_flags_vertical = 3
 texture = ExtResource( 1 )
@@ -38,61 +45,63 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="vbox" type="VBoxContainer" parent="hbox"]
 margin_left = 68.0
 margin_right = 260.0
-margin_bottom = 85.0
+margin_bottom = 81.0
 size_flags_horizontal = 3
 
-[node name="name" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="name" type="Label" parent="hbox/vbox"]
 margin_right = 192.0
 margin_bottom = 23.0
 custom_fonts/font = SubResource( 1 )
 
-[node name="stat-container" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="stat-container" type="HBoxContainer" parent="hbox/vbox"]
 margin_top = 27.0
 margin_right = 192.0
 margin_bottom = 51.0
 
-[node name="dmg-label" type="Label" parent="HBoxContainer/VBoxContainer/stat-container"]
+[node name="dmg-label" type="Label" parent="hbox/vbox/stat-container"]
 margin_top = 5.0
 margin_right = 18.0
 margin_bottom = 19.0
 text = "D: "
 
-[node name="dmg" type="SpinBox" parent="HBoxContainer/VBoxContainer/stat-container"]
+[node name="dmg" type="SpinBox" parent="hbox/vbox/stat-container"]
 margin_left = 22.0
 margin_right = 96.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 
-[node name="ht-label" type="Label" parent="HBoxContainer/VBoxContainer/stat-container"]
+[node name="ht-label" type="Label" parent="hbox/vbox/stat-container"]
 margin_left = 100.0
 margin_top = 5.0
 margin_right = 114.0
 margin_bottom = 19.0
 text = "H:"
 
-[node name="ht" type="SpinBox" parent="HBoxContainer/VBoxContainer/stat-container"]
+[node name="ht" type="SpinBox" parent="hbox/vbox/stat-container"]
 margin_left = 118.0
 margin_right = 192.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 
-[node name="condition-container" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="condition-container" type="HBoxContainer" parent="hbox/vbox"]
 margin_top = 55.0
 margin_right = 192.0
 margin_bottom = 81.0
 
-[node name="con-label" type="Label" parent="HBoxContainer/VBoxContainer/condition-container"]
+[node name="con-label" type="Label" parent="hbox/vbox/condition-container"]
 margin_top = 6.0
 margin_right = 69.0
 margin_bottom = 20.0
 text = "Condition: "
 
-[node name="condition" type="LineEdit" parent="HBoxContainer/VBoxContainer/condition-container"]
+[node name="condition" type="LineEdit" parent="hbox/vbox/condition-container"]
 margin_left = 73.0
 margin_right = 192.0
 margin_bottom = 26.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
+caret_blink = true
+caret_blink_speed = 0.5
