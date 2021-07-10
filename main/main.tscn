@@ -14,14 +14,17 @@ script = ExtResource( 4 )
 margin_right = 250.0
 margin_bottom = 640.0
 
-[node name="Grid2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( 300, 0 )
-
 [node name="panel-right-anchor" type="Node2D" parent="."]
 position = Vector2( 1100, 0 )
 
 [node name="panel-right" parent="panel-right-anchor" instance=ExtResource( 1 )]
 anchor_right = 1.0
 
+[node name="Grid2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 300, 0 )
+
+[connection signal="clear_selections" from="." to="Grid2D" method="_on_main_clear_selections"]
 [connection signal="gridTypeToggled" from="panel-left-anchor/panel-left" to="Grid2D" method="_on_panelleft_gridTypeToggled"]
 [connection signal="playerAdded" from="panel-left-anchor/panel-left" to="." method="_on_panelleft_playerAdded"]
+[connection signal="tileHeld" from="panel-left-anchor/panel-left" to="." method="_on_panelleft_tileHeld"]
+[connection signal="tileHeld" from="panel-left-anchor/panel-left" to="Grid2D" method="_on_panelleft_tileHeld"]

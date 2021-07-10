@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://main/popups/popup-entity.gd" type="Script" id=1]
+
+[node name="popup-entity" type="AcceptDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1050.0
+margin_bottom = -550.0
+rect_min_size = Vector2( 210, 300 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbox" type="VBoxContainer" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 342.0
+margin_bottom = 264.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hbox" type="HBoxContainer" parent="vbox"]
+margin_right = 334.0
+margin_bottom = 25.0
+
+[node name="nameLabel" type="Label" parent="vbox/hbox"]
+margin_top = 5.0
+margin_right = 46.0
+margin_bottom = 19.0
+text = "Name: "
+
+[node name="nameInput" type="LineEdit" parent="vbox/hbox"]
+margin_left = 50.0
+margin_right = 334.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 100, 25 )
+size_flags_horizontal = 3
+text = "Monster"
+
+[node name="textureLabel" type="Label" parent="vbox"]
+margin_top = 29.0
+margin_right = 334.0
+margin_bottom = 43.0
+text = "Texture"
+
+[node name="textures" type="ItemList" parent="vbox"]
+margin_top = 47.0
+margin_right = 334.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+max_text_lines = 3
+max_columns = 12
+icon_scale = 2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="confirmed" from="." to="." method="_on_popupentity_confirmed"]
