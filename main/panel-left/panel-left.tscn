@@ -72,7 +72,6 @@ margin_bottom = 57.0
 [node name="new" type="Button" parent="panel-container/vbox/hboxSL"]
 margin_right = 92.0
 margin_bottom = 20.0
-hint_tooltip = "This feature is currently unavailable"
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )

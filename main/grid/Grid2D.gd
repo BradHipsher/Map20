@@ -13,7 +13,7 @@ var background
 var gridPositions
 
 var gridType = 'rect'
-var gridSize = 24
+var gridSize = 25
 var gridAreaSize = 800.0
 
 var tileScale = Vector2.ONE
@@ -38,23 +38,23 @@ func _ready():
 func generate_grid():
 	Global.delete_children(tiles)
 	gridPositions = []
-	var s : float = gridAreaSize / (gridSize + 1)
+	var s : float = gridAreaSize / (gridSize)
 	tileScale = Vector2(s/32.0, s/32.0)
 	gridPositions = []
 	if (gridType == 'rect'):
 		for j in gridSize:
 			for i in gridSize:
-				var pos = Vector2(s+i*s, s+j*s)
+				var pos = Vector2((0.5*s) + i*s, (0.5*s) + j*s)
 				gen_tile(pos)
 	if (gridType == 'hex'):
 		for j in gridSize:
 			if(j % 2):
 				for i in gridSize:
-					var pos = Vector2(s+i*s, s+j*s)
+					var pos = Vector2((0.5*s) + i*s, (0.5*s) + j*s)
 					gen_tile(pos)
 			if(! j % 2):
 				for i in gridSize - 1:
-					var pos = Vector2((s * 1.5)+i*s, s+j*s)
+					var pos = Vector2(s +i*s, (0.5*s) + j*s)
 					gen_tile(pos)
 
 func gen_tile(pos):
@@ -133,3 +133,5 @@ func _on_panelleft_bkgdLoaded(bkgd):
 	var texture = ImageTexture.new()
 	texture.create_from_image(bkgd)
 	background.texture = texture
+	var loadedSize = background.texture.size
+	background.scale = Global.fitToSquareScale(loadedSize,800)

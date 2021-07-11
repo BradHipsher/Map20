@@ -29,5 +29,5 @@ position = Vector2( 300, 0 )
 [connection signal="gridTypeToggled" from="panel-left-anchor/panel-left" to="Grid2D" method="_on_panelleft_gridTypeToggled"]
 [connection signal="newMap" from="panel-left-anchor/panel-left" to="." method="_on_panelleft_newMap"]
 [connection signal="playerAdded" from="panel-left-anchor/panel-left" to="." method="_on_panelleft_playerAdded"]
-[connection signal="tileHeld" from="panel-left-anchor/panel-left" to="." method="_on_panelleft_tileHeld"]
 [connection signal="tileHeld" from="panel-left-anchor/panel-left" to="Grid2D" method="_on_panelleft_tileHeld"]
+[connection signal="tileHeld" from="panel-left-anchor/panel-left" to="." method="_on_panelleft_tileHeld"]

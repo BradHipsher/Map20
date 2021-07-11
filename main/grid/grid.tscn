@@ -8,7 +8,7 @@
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
 "loop": true,
-"name": "default",
+"name": "flash",
 "speed": 5.0
 } ]
 
@@ -18,11 +18,13 @@ animations = [ {
 script = ExtResource( 2 )
 
 [node name="bkgd" type="Sprite" parent="."]
-centered = false
+position = Vector2( 400, 400 )
 
 [node name="constructionBorder" type="AnimatedSprite" parent="."]
+visible = false
 frames = SubResource( 1 )
 animation = "flash"
+frame = 1
 playing = true
 centered = false
 

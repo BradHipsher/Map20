@@ -21,3 +21,8 @@ static func delete_children(node):
 	for n in node.get_children():
 		node.remove_child(n)
 		n.queue_free()
+
+static func fitToSquareScale(fit,fitTo:float):
+	var mx:float = max(fit.x, fit.y)
+	return Vector2.ONE * fitTo/mx
+	

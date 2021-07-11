@@ -28,35 +28,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="hboxTS" type="HBoxContainer" parent="vbox"]
-margin_right = 284.0
-margin_bottom = 16.0
-
-[node name="gridSizeLabel" type="Label" parent="vbox/hboxTS"]
-margin_top = 1.0
-margin_right = 61.0
-margin_bottom = 15.0
-text = "Grid Size:"
-
-[node name="gridSize" type="HSlider" parent="vbox/hboxTS"]
-margin_left = 65.0
-margin_right = 284.0
-margin_bottom = 16.0
-size_flags_horizontal = 3
-min_value = 4.0
-max_value = 24.0
-value = 24.0
-ticks_on_borders = true
-
 [node name="hboxBT" type="HBoxContainer" parent="vbox"]
-margin_top = 20.0
 margin_right = 284.0
-margin_bottom = 40.0
+margin_bottom = 20.0
 
 [node name="loadBkgd" type="Button" parent="vbox/hboxBT"]
 margin_right = 140.0
 margin_bottom = 20.0
-hint_tooltip = "This feature is currently unavailable"
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
@@ -83,11 +61,32 @@ __meta__ = {
 }
 
 [node name="imgLoadLabel" type="Label" parent="vbox"]
-margin_top = 44.0
+margin_top = 24.0
+margin_right = 284.0
+margin_bottom = 38.0
+
+[node name="hboxTS" type="HBoxContainer" parent="vbox"]
+margin_top = 42.0
 margin_right = 284.0
 margin_bottom = 58.0
 
-[connection signal="value_changed" from="vbox/hboxTS/gridSize" to="." method="_on_gridSize_value_changed"]
+[node name="gridSizeLabel" type="Label" parent="vbox/hboxTS"]
+margin_top = 1.0
+margin_right = 61.0
+margin_bottom = 15.0
+text = "Grid Size:"
+
+[node name="gridSize" type="HSlider" parent="vbox/hboxTS"]
+margin_left = 65.0
+margin_right = 284.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = 4.0
+max_value = 25.0
+value = 25.0
+ticks_on_borders = true
+
 [connection signal="pressed" from="vbox/hboxBT/loadBkgd" to="." method="_on_loadBkgd_pressed"]
 [connection signal="imageLoaded" from="vbox/hboxBT/loadBkgd/fxchg" to="." method="_on_fxchg_imageLoaded"]
 [connection signal="pressed" from="vbox/hboxBT/hexMode" to="." method="_on_hexMode_pressed"]
+[connection signal="value_changed" from="vbox/hboxTS/gridSize" to="." method="_on_gridSize_value_changed"]
