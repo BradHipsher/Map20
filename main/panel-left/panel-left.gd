@@ -3,10 +3,15 @@ extends Panel
 signal playerAdded(txt, nm)
 signal gridTypeToggled
 signal tileHeld(txt)
+signal gridSizeChanged(value)
+signal newMap
+signal bkgdLoaded(bkgd)
 
 var popupWIP = preload("res://main/popups/popup-wip.tscn")
 var popupEntity = preload("res://main/popups/popup-entity.tscn")
 var popupHex = preload("res://main/popups/popup-confirm-hex.tscn")
+var popupNew = preload("res://main/popups/popup-new-map.tscn")
+var popupConfirmNew = preload("res://main/popups/popup-confirm-new.tscn")
 
 var hexMode
 var tiles
@@ -24,6 +29,12 @@ func _ready():
 	hexMode = get_node("panel-container/vbox/hexMode")
 	tiles = get_node("panel-container/vbox/tiles")
 	entities = get_node("panel-container/vbox/entities")
+	var popup = popupNew.instance()
+	add_child(popup)
+	popup.connect("gridSizeChanged", self, "_on_gridSize_value_changed")
+	popup.connect("hexModePressed", self, "_on_hexMode_pressed")
+	popup.connect("bkgdLoaded", self, "_on_bkgdLoaded")
+	popup.popup_centered_clamped()
 
 func _on_hexMode_pressed():
 	var popup = popupWIP.instance()
@@ -51,6 +62,15 @@ func _on_load_pressed():
 	var popup = popupWIP.instance()
 	add_child(popup)
 	popup.popup_centered(Vector2(320,100))
+
+func _on_newMap_pressed():
+	var popup = popupConfirmNew.instance()
+	add_child(popup)
+	popup.connect("confirmed", self, "_on_newMap_confirmed")
+	popup.popup_centered_clamped()
+
+func _on_newMap_confirmed():
+	emit_signal("newMap")
 
 func _on_entities_doubleClickedEntity():
 	add_player()
@@ -85,3 +105,11 @@ func add_tile(txt):
 
 func _on_tiles_item_selected(index):
 	emit_signal("tileHeld",tiles.get_item_icon(index))
+
+
+func _on_gridSize_value_changed(value):
+	emit_signal("gridSizeChanged", value)
+
+func _on_bkgdLoaded(bkgd):
+	emit_signal("bkgdLoaded", bkgd)
+

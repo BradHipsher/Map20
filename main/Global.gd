@@ -1,6 +1,6 @@
 extends Node
 
-func getMinDistVec(pos, arrVec2):
+static func getMinDistVec(pos, arrVec2):
 	var mindist = -1
 	var minvec = Vector2(-1,-1)
 	for vec in arrVec2:
@@ -13,6 +13,9 @@ func getMinDistVec(pos, arrVec2):
 				mindist=dist
 				minvec = vec
 	return minvec
+
+static func posAddress(pos):
+	return str(Vector2(round(pos.x), round(pos.y)))
 
 static func delete_children(node):
 	for n in node.get_children():

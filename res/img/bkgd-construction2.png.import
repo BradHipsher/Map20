@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bkgd-orange.png-78bb3ed21bef4e46ea88a2dedc1abf0e.stex"
+path="res://.import/bkgd-construction2.png-80d7732ac2a8d9f2b59a9c469955fb35.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/img/bkgd-orange.png"
-dest_files=[ "res://.import/bkgd-orange.png-78bb3ed21bef4e46ea88a2dedc1abf0e.stex" ]
+source_file="res://res/img/bkgd-construction2.png"
+dest_files=[ "res://.import/bkgd-construction2.png-80d7732ac2a8d9f2b59a9c469955fb35.stex" ]
 
 [params]
 

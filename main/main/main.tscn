@@ -3,7 +3,7 @@
 [ext_resource path="res://main/panel-right/panel-right.tscn" type="PackedScene" id=1]
 [ext_resource path="res://main/grid/grid.tscn" type="PackedScene" id=2]
 [ext_resource path="res://main/panel-left/panel-left.tscn" type="PackedScene" id=3]
-[ext_resource path="res://main/main.gd" type="Script" id=4]
+[ext_resource path="res://main/main/main.gd" type="Script" id=4]
 
 [node name="main" type="Node2D"]
 script = ExtResource( 4 )
@@ -24,7 +24,10 @@ anchor_right = 1.0
 position = Vector2( 300, 0 )
 
 [connection signal="clear_selections" from="." to="Grid2D" method="_on_main_clear_selections"]
+[connection signal="bkgdLoaded" from="panel-left-anchor/panel-left" to="Grid2D" method="_on_panelleft_bkgdLoaded"]
+[connection signal="gridSizeChanged" from="panel-left-anchor/panel-left" to="Grid2D" method="_on_panelleft_gridSizeChanged"]
 [connection signal="gridTypeToggled" from="panel-left-anchor/panel-left" to="Grid2D" method="_on_panelleft_gridTypeToggled"]
+[connection signal="newMap" from="panel-left-anchor/panel-left" to="." method="_on_panelleft_newMap"]
 [connection signal="playerAdded" from="panel-left-anchor/panel-left" to="." method="_on_panelleft_playerAdded"]
 [connection signal="tileHeld" from="panel-left-anchor/panel-left" to="." method="_on_panelleft_tileHeld"]
 [connection signal="tileHeld" from="panel-left-anchor/panel-left" to="Grid2D" method="_on_panelleft_tileHeld"]

@@ -9,9 +9,14 @@ const cursorTiler = preload("res://res/img/cursor-tiler.png")
 var tiles
 var players
 var constructionBorder
+var background
 var gridPositions
 
 var gridType = 'rect'
+var gridSize = 24
+var gridAreaSize = 800.0
+
+var tileScale = Vector2.ONE
 
 const gridToggle = {
 	'rect': 'hex',
@@ -27,32 +32,38 @@ func _ready():
 	players = get_node("players")
 	constructionBorder = get_node("constructionBorder")
 	constructionBorder.visible = false
+	background = get_node("bkgd")
 	generate_grid()
 
 func generate_grid():
+	Global.delete_children(tiles)
+	gridPositions = []
+	var s : float = gridAreaSize / (gridSize + 1)
+	tileScale = Vector2(s/32.0, s/32.0)
 	gridPositions = []
 	if (gridType == 'rect'):
-		for j in 24:
-			for i in 24:
-				var pos = Vector2(32+i*32, 32+j*32)
+		for j in gridSize:
+			for i in gridSize:
+				var pos = Vector2(s+i*s, s+j*s)
 				gen_tile(pos)
 	if (gridType == 'hex'):
-		for j in 24:
+		for j in gridSize:
 			if(j % 2):
-				for i in 24:
-					var pos = Vector2(32+i*32, 32+j*32)
+				for i in gridSize:
+					var pos = Vector2(s+i*s, s+j*s)
 					gen_tile(pos)
 			if(! j % 2):
-				for i in 23:
-					var pos = Vector2(48+i*32, 32+j*32)
+				for i in gridSize - 1:
+					var pos = Vector2((s * 1.5)+i*s, s+j*s)
 					gen_tile(pos)
 
 func gen_tile(pos):
 	gridPositions.append(pos)
 	var ts = tileSpace.instance()
 	ts.position = pos
+	ts.scale = tileScale
 	tiles.add_child(ts)
-	ts.name = str(pos)
+	ts.name = Global.posAddress(pos)
 
 #func refresh_tiles():
 #	Global.delete_children(tiles)
@@ -60,7 +71,7 @@ func gen_tile(pos):
 #		var ts = tileSpace.instance()
 #		ts.position = pos
 #		tiles.add_child(ts)
-#		ts.name = str(pos)
+#		ts.name = Global.posAddress(pos)
 
 func _on_pickable_clicked(object):
 	if !held_object:
@@ -76,16 +87,17 @@ func _unhandled_input(event):
 			held_object = null
 		elif tileTxt_selected and event.pressed:
 			var editPos = Global.getMinDistVec(get_global_mouse_position() - global_position, gridPositions)
-			tiles.get_node(str(editPos)).get_node("./Sprite").texture = tileTxt_selected
+			tiles.get_node(Global.posAddress(editPos)).get_node("./Sprite").texture = tileTxt_selected
 	if event is InputEventMouseMotion:
 		if tileTxt_selected and Input.is_action_pressed("LMB"):
 			var editPos = Global.getMinDistVec(get_global_mouse_position() - global_position, gridPositions)
-			tiles.get_node(str(editPos)).get_node("./Sprite").texture = tileTxt_selected
+			tiles.get_node(Global.posAddress(editPos)).get_node("./Sprite").texture = tileTxt_selected
 
 func add_player(nm, txt):
 	var ent = entity.instance()
 	ent.setSprite(txt)
 	ent.position = gridPositions[0]
+	ent.scale = tileScale
 	ent.name = nm
 	ent.connect("clicked", self, "_on_pickable_clicked")
 	print("added player and connected the signal")
@@ -110,3 +122,14 @@ func _on_panelleft_tileHeld(txt):
 func _on_main_clear_selections():
 	tileTxt_selected = null
 	constructionBorder.visible = false
+
+
+func _on_panelleft_gridSizeChanged(value):
+	gridSize = value
+	generate_grid()
+
+
+func _on_panelleft_bkgdLoaded(bkgd):
+	var texture = ImageTexture.new()
+	texture.create_from_image(bkgd)
+	background.texture = texture

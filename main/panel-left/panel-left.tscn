@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://res/fonts/BRLNSR.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://main/panel-left/panel-left.gd" type="Script" id=2]
@@ -9,23 +9,19 @@
 size = 28
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=2]
+size = 12
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=3]
 size = 12
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 12
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=5]
 size = 20
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
-size = 12
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 size = 20
 font_data = ExtResource( 1 )
 
@@ -68,33 +64,50 @@ bbcode_text = "[center]Map Editor[/center]"
 text = "Map Editor"
 fit_content_height = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="panel-container/vbox"]
+[node name="hboxSL" type="HBoxContainer" parent="panel-container/vbox"]
 margin_top = 37.0
 margin_right = 286.0
 margin_bottom = 57.0
 
-[node name="save" type="Button" parent="panel-container/vbox/HBoxContainer"]
-margin_right = 141.0
+[node name="new" type="Button" parent="panel-container/vbox/hboxSL"]
+margin_right = 92.0
 margin_bottom = 20.0
+hint_tooltip = "This feature is currently unavailable"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "NEW"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="save" type="Button" parent="panel-container/vbox/hboxSL"]
+margin_left = 96.0
+margin_right = 189.0
+margin_bottom = 20.0
+hint_tooltip = "This feature is currently unavailable"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+disabled = true
+text = "SAVE"
+
+[node name="load" type="Button" parent="panel-container/vbox/hboxSL"]
+margin_left = 193.0
+margin_right = 286.0
+margin_bottom = 20.0
+hint_tooltip = "This feature is currently unavailable"
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 3 )
-text = "SAVE"
-
-[node name="load" type="Button" parent="panel-container/vbox/HBoxContainer"]
-margin_left = 145.0
-margin_right = 286.0
-margin_bottom = 20.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+disabled = true
 text = "LOAD"
 
 [node name="tilesLabel" type="RichTextLabel" parent="panel-container/vbox"]
 margin_top = 61.0
 margin_right = 286.0
 margin_bottom = 85.0
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "[center]Tiles[/center]"
 text = "Tiles"
@@ -103,32 +116,25 @@ fit_content_height = true
 [node name="tiles" type="ItemList" parent="panel-container/vbox"]
 margin_top = 89.0
 margin_right = 286.0
-margin_bottom = 409.0
+margin_bottom = 421.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 max_columns = 10
 icon_scale = 2.0
 script = ExtResource( 4 )
 
-[node name="hexMode" type="Button" parent="panel-container/vbox"]
-margin_top = 413.0
-margin_right = 286.0
-margin_bottom = 433.0
-custom_fonts/font = SubResource( 2 )
-text = "ENABLE HEX-MODE"
-
 [node name="entitiesLabel" type="RichTextLabel" parent="panel-container/vbox"]
-margin_top = 437.0
+margin_top = 425.0
 margin_right = 286.0
-margin_bottom = 461.0
-custom_fonts/normal_font = SubResource( 6 )
+margin_bottom = 449.0
+custom_fonts/normal_font = SubResource( 5 )
 bbcode_enabled = true
 bbcode_text = "[center]Entities[/center]"
 text = "Entities"
 fit_content_height = true
 
 [node name="entities" type="ItemList" parent="panel-container/vbox"]
-margin_top = 465.0
+margin_top = 453.0
 margin_right = 286.0
 margin_bottom = 786.0
 size_flags_horizontal = 3
@@ -136,8 +142,8 @@ size_flags_vertical = 3
 icon_scale = 1.5
 script = ExtResource( 3 )
 
-[connection signal="pressed" from="panel-container/vbox/HBoxContainer/save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="panel-container/vbox/HBoxContainer/load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="panel-container/vbox/hboxSL/new" to="." method="_on_newMap_pressed"]
+[connection signal="pressed" from="panel-container/vbox/hboxSL/save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="panel-container/vbox/hboxSL/load" to="." method="_on_load_pressed"]
 [connection signal="item_selected" from="panel-container/vbox/tiles" to="." method="_on_tiles_item_selected"]
-[connection signal="pressed" from="panel-container/vbox/hexMode" to="." method="_on_hexMode_pressed"]
 [connection signal="doubleClickedEntity" from="panel-container/vbox/entities" to="." method="_on_entities_doubleClickedEntity"]

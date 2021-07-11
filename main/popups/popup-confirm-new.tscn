@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://main/popups/popup-confirm-new.gd" type="Script" id=1]
+
+[node name="popup-confirm-new" type="ConfirmationDialog"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1184.0
+margin_bottom = -708.0
+script = ExtResource( 1 )
+
+[node name="confirm-label" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 208.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 200, 0 )
+text = "Please confirm that you want to clear all progress and restart from scratch"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

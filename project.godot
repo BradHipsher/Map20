@@ -11,12 +11,13 @@ config_version=4
 [application]
 
 config/name="Map20"
-run/main_scene="res://main/main.tscn"
+run/main_scene="res://main/entry-point.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://main/Global.gd"
+Html5FileExchange="*res://HTML5-File-Exchange-for-Godot-master/addons/HTML5FileExchange/HTML5FileExchange.gd"
 
 [display]
 

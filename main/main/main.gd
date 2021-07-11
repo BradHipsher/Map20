@@ -1,7 +1,9 @@
 extends Node2D
 
 signal clear_selections
+signal newMap
 
+const tileClearTxt = preload("res://res/img/tile-clear.png")
 const tileBlankTxt = preload("res://res/img/tile-blank.png")
 const tileBasicTxt = preload("res://res/img/tile-basic-grey-brick.png")
 const tileRoyalTxt = preload("res://res/img/tile-royal-purple.png")
@@ -25,6 +27,7 @@ func _ready():
 	panelLeft = get_node("panel-left-anchor/panel-left")
 	grid2d = get_node("Grid2D")
 	panelRight = get_node("panel-right-anchor/panel-right")
+	add_tile(tileClearTxt)
 	add_tile(tileBlankTxt)
 	add_tile(tileBasicTxt)
 	add_tile(tileRoyalTxt)
@@ -63,3 +66,7 @@ func _on_panelleft_tileHeld(txt):
 	Input.set_default_cursor_shape(Input.CURSOR_CROSS)
 	panelLeft.set_default_cursor_shape(Input.CURSOR_CROSS)
 	panelRight.set_default_cursor_shape(Input.CURSOR_CROSS)
+
+
+func _on_panelleft_newMap():
+	emit_signal("newMap")
